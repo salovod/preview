@@ -32,8 +32,7 @@ public class BeforeClass extends ReadPropertiesForTest {
         Configuration.timeout = timeOut;
         makeScreenshotOnFailure.captureSuccessfulTests = true;
         System.setProperty(browserPropertyName, browserPropertyPath);
-//        signInPage.clickOnLoginButton();
-//        signInPage.chooseServer(loginData("serverName"));
+        open(baseURL);
         signInPage.loginToAccount(
                 loginData("serverName") ,
                 loginData("username") ,
