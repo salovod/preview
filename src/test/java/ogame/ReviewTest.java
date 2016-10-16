@@ -9,12 +9,9 @@ import signIn.SignInPage;
  */
 public class ReviewTest extends BeforeClass{
 
-    SignInPage signInPage = new SignInPage();
 
     @Test
     public void review() throws InterruptedException {
-        signInPage.clickOnLoginButton();
-        signInPage.chooseServer("Izar");
         Thread.sleep(3000);
     }
 }
