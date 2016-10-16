@@ -8,7 +8,6 @@ import preparation.BeforeClass;
  */
 public class ReviewTest extends BeforeClass {
 
-
     @Test
     public void review() throws InterruptedException {
     }
