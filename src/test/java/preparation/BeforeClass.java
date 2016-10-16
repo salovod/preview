@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class BeforeClass {
 
-    private final String baseURL = "https://service-amsup-us.secure.lab.nordigy.ru";
-    private final String regURLPart = "/office-v4.0";
+    private final String baseURL = "";
+    private final String regURLPart = "";
     final String browserPropertyName = "webdriver.chrome.driver";
     final String browserPropertyPath = "./src/main/resources/chromedriver.exe";
     final int timeOut = 10000;
