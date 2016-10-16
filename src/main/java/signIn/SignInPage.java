@@ -11,6 +11,8 @@ public class SignInPage {
 
     SelenideElement loginButton = $("#loginBtn");
     SelenideElement chooseServer = $("#serverLogin");
+    SelenideElement usernameField = $("#usernameLogin");
+    SelenideElement passwordField = $("#passwordLogin");
 
 
     public void clickOnLoginButton() {
@@ -18,5 +20,11 @@ public class SignInPage {
     }
     public void chooseServer(String serverName) {
         chooseServer.selectOption(serverName);
+    }
+    public void fillUsername(String username) {
+        usernameField.val(username);
+    }
+    public void fillPassword(String password) {
+        passwordField.val(password);
     }
 }
