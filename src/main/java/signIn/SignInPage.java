@@ -13,18 +13,35 @@ public class SignInPage {
     SelenideElement chooseServer = $("#serverLogin");
     SelenideElement usernameField = $("#usernameLogin");
     SelenideElement passwordField = $("#passwordLogin");
+    SelenideElement enterButton = $("#loginSubmit");
 
 
     public void clickOnLoginButton() {
         loginButton.click();
     }
+
     public void chooseServer(String serverName) {
         chooseServer.selectOption(serverName);
     }
+
     public void fillUsername(String username) {
         usernameField.val(username);
     }
+
     public void fillPassword(String password) {
         passwordField.val(password);
+    }
+
+    public void clickOnEnterButton() {
+        enterButton.click();
+    }
+
+    public void loginToAccount(String serverName, String username, String password) {
+        clickOnLoginButton();
+        chooseServer(serverName);
+        fillUsername(username);
+        fillPassword(password);
+        clickOnEnterButton();
+
     }
 }

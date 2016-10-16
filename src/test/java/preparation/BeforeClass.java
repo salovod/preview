@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  * Created by Sacred on 16.10.2016.
  */
-public class BeforeClass {
+public class BeforeClass extends ReadPropertiesForTest {
 
     SignInPage signInPage = new SignInPage();
 
@@ -26,8 +26,12 @@ public class BeforeClass {
         Configuration.timeout = timeOut;
         System.setProperty(browserPropertyName, browserPropertyPath);
         open(baseURL);
-        signInPage.clickOnLoginButton();
-        signInPage.chooseServer("Izar");
+//        signInPage.clickOnLoginButton();
+//        signInPage.chooseServer(loginData("serverName"));
+        signInPage.loginToAccount(
+                loginData("serverName") ,
+                loginData("username") ,
+                loginData("password"));
     }
 
 
