@@ -38,6 +38,7 @@ public class BeforeClass extends ReadPropertiesForTest {
 
     @After
     public void after() {
-        close();
+        //  close();
+        Configuration.holdBrowserOpen = true;
     }
 }
