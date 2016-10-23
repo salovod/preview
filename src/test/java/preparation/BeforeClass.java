@@ -34,13 +34,14 @@ public class BeforeClass extends ReadPropertiesForTest {
         System.setProperty(browserPropertyName, browserPropertyPath);
         open(baseURL);
         signInPage.loginToAccount(
-                loginData("serverName") ,
-                loginData("username") ,
+                loginData("serverName"),
+                loginData("username"),
                 loginData("password"));
     }
 
     @After
-    public void after() throws IOException {
-        close();
+    public void after() {
+        //  close();
+        Configuration.holdBrowserOpen = true;
     }
 }
