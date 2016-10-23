@@ -1,5 +1,6 @@
 package signIn;
 
+import ScreensRules.ScreenRule;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -7,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by Sacred on 16.10.2016.
  */
-public class SignInPage {
+public class SignInPage extends ScreenRule {
 
     SelenideElement loginButton = $("#loginBtn");
     SelenideElement chooseServer = $("#serverLogin");
@@ -16,20 +17,22 @@ public class SignInPage {
     SelenideElement enterButton = $("#loginSubmit");
 
 
-    public void clickOnLoginButton() {
+    private void clickOnLoginButton() {
         loginButton.click();
+        makeScreenshot();
     }
-
-    public void chooseServer(String serverName) {
+    private void chooseServer(String serverName) {
         chooseServer.selectOption(serverName);
+        makeScreenshot();
     }
-
-    public void fillUsername(String username) {
+    private void fillUsername(String username) {
         usernameField.val(username);
+        makeScreenshot();
     }
 
-    public void fillPassword(String password) {
+    private void fillPassword(String password) {
         passwordField.val(password);
+        makeScreenshot();
     }
 
     public void clickOnEnterButton() {
@@ -42,6 +45,5 @@ public class SignInPage {
         fillUsername(username);
         fillPassword(password);
         clickOnEnterButton();
-
     }
 }
