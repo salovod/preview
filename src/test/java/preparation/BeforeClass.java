@@ -1,6 +1,7 @@
 package preparation;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.After;
 import org.junit.Before;
@@ -17,11 +18,12 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class BeforeClass extends ReadPropertiesForTest {
 
+
     final String browserPropertyName = "webdriver.chrome.driver";
     final String browserPropertyPath = "./src/main/resources/chromedriver.exe";
     final int timeOut = 10000;
     private final String baseURL = "https://ru.ogame.gameforge.com/";
-
+    public ConfigureIt drvs = new ConfigureIt();
     @Rule
     public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
     SignInPage signInPage = new SignInPage();
@@ -31,7 +33,7 @@ public class BeforeClass extends ReadPropertiesForTest {
         Configuration.browser = "chrome";
         Configuration.timeout = timeOut;
         makeScreenshotOnFailure.captureSuccessfulTests = true;
-        System.setProperty(browserPropertyName, browserPropertyPath);
+        WebDriverRunner.setWebDriver(drvs.getChromeDriver());
         open(baseURL);
         signInPage.loginToAccount(
                 loginData("serverName") ,
